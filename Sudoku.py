@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
 import pygame
-
-# In[2]:
 pygame.init()
 
 WIDTH, HEIGHT = 540, 600
@@ -15,8 +9,6 @@ BLACK = (0, 0, 0)
 BROWN = (139, 69, 19)
 MOCCASIN = (255, 228, 181)
 
-
-# In[3]:
 def draw_board(board):
     screen.fill(MOCCASIN)
 
@@ -36,7 +28,6 @@ def draw_board(board):
                 screen.blit(num, (x, y))
 
 
-# In[4]:
 def is_valid_move(board, row, col, num):
     for i in range(9):
         if board[row][i] == num or board[i][col] == num:
@@ -48,11 +39,9 @@ def is_valid_move(board, row, col, num):
         for j in range(square_col, square_col + 3):
             if board[i][j] == num:
                 return False
-            
     return True
 
 
-# In[5]:
 def mouse_operation(board, press):
     mouse_pos = pygame.mouse.get_pos()
 
@@ -68,11 +57,9 @@ def mouse_operation(board, press):
                 row, col = press
                 if is_valid_move(board, row, col, i):
                     board[row][col] = i
-
     return press
 
 
-# In[6]:
 def run():
     board = [
         [0, 0, 1, 9, 8, 4, 7, 6, 0],
@@ -106,4 +93,3 @@ def run():
         clock.tick(60)
 
 run()
-
